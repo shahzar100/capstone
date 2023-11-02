@@ -1,59 +1,292 @@
-.App {
-	text-align: center;
+body {
+	overflow: hidden;
 }
 
-.App-logo {
-	height: 40vmin;
-	pointer-events: none;
+/* Default styles for all screen sizes (including desktop) */
+.container {
+	display: grid;
+	min-height: 50vh;
+	height: 100vh;
+	grid-template-columns: 100%;
+	grid-template-rows: auto 1fr auto;
+	grid-template-areas: "header" "main" "footer";
 }
 
-@media (prefers-reduced-motion: no-preference) {
-	.App-logo {
-		animation: App-logo-spin infinite 20s linear;
-	}
-}
-
-.App-link {
-	color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-	from {
-		transform: rotate(0deg);
-	}
-
-	to {
-		transform: rotate(360deg);
-	}
+.main {
+	grid-area: main;
+	overflow: scroll;
 }
 
 header {
-	height: 200px;
-	width: 100%;
+	grid-area: header;
+	height: 50px;
+	padding: 20px 0;
 	display: flex;
-	flex-direction: row;
-	gap: 20px;
-	align-items: center;
-	justify-content:space-between;
+	justify-content: space-around;
 }
 
-nav{
-	height: 200px;
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	gap: 20px;
-	align-items: center;
-	justify-content:end;
+.footer {
+	grid-area: footer;
+	padding: 10px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
 }
 
-nav img {
+/* Media query for tablets (768px - 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	.container {
+		grid-template-columns: 1fr 3fr 1fr;
+		/* Adjust column layout for tablets */
+		grid-template-areas: "header header header" "main main main" "footer footer footer";
+	}
+
+	header {
+		padding: 10px 0;
+	}
+}
+
+/* Media query for mobile devices (up to 767px) */
+@media screen and (max-width: 767px) {
+	.container {
+		grid-template-columns: 1fr;
+		/* Adjust to a single column layout for mobile */
+		grid-template-areas:
+			"header"
+			"main"
+			"footer";
+	}
+
+	header {
+		height: auto;
+		/* Adjust header height for mobile */
+		padding: 10px 0;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.footer {
+		padding: 5px;
+	}
+}
+
+
+h1 {
+	font-size: 64px;
+	line-height: 0px;
+	font-weight: medium;
+	font-family: 'Markazi Text';
+}
+
+h2 {
+	font-size: 48px;
+	line-height: 0%;
+	font-family: 'Markazi Text';
+}
+
+h3 {
+	font-size: 40px;
+	font-family: 'Markazi Text';
+}
+
+.leadText {
+	font-size: 18px;
+	font-weight: medium;
+	font-family: 'Karla';
+}
+
+.sectionTitle {
+	font-size: 20px;
+	font-weight: bolder;
+	text-transform: uppercase;
+	font-family: 'Karla';
+}
+
+.sectionCategories {
+	font-size: 16px;
+	font-weight: bolder;
+	font-family: 'Karla';
+}
+
+.cardTitle {
+	font-size: 18pt;
+	font-family: 'Karla';
+}
+
+p {
+	font-size: 16pt;
+	font-family: 'Karla';
+}
+
+span {
+	font-size: 16pt;
+	font-weight: medium;
+	font-family: 'Karla';
+}
+
+nav ul {
+	text-decoration: none !important;
+	list-style-type: none !important;
+	display: flex;
+	gap: 20px;
+}
+
+li {
+	text-decoration: none;
+}
+
+
+main .article {
+	display: flex;
+	gap: 100px;
+	background-color: black;
+	height: 35vh;
+	padding: 30px;
+	color: white;
+}
+
+main .article img {
+	height: 100%;
+	width: 50%;
+	object-fit: cover;
+	border-radius: 8%;
+}
+
+main .article .HeroInfo {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	gap: 0;
+}
+
+main a {
+	background-color: black;
+	color: white;
+	text-decoration: none;
+	border: 4px white solid;
+	padding: 40px;
+	text-align: center;
 	width: 200px;
-	height: 200px;
+	height: 20px;
+}
+
+main .specials {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
 }
 
 
-main {
-	height: 100vw !important;
-	width: 100vw !important;
+
+main .SpecialSection {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	margin-top: 50px;
+}
+
+.primaryButton {
+	background-color: black;
+	color: white;
+	text-decoration: none;
+	border: 4px white solid;
+	padding: 40px;
+	text-align: center;
+}
+
+.specialsList {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	/* Create 3 columns */
+	grid-auto-flow: column;
+	/* Flow in columns with 3 columns per column track */
+	gap:100px;
+	padding-right: 100px;
+	padding-left: 100px;
+}
+
+main .SpecialCard {
+	border: 2px black solid;
+	height: 50vh;
+	width: auto;
+	padding: 50px;
+}
+
+
+@media screen and (max-width:1000px) {
+	header {
+		display: flex;
+		flex-direction: row;
+		padding: 0px;
+		width: 100%;
+		justify-content: space-around;
+		align-items: center;
+		border: 2px solid white;
+		height: 70px;
+	}
+
+	header img {
+		width: 150px;
+		height: 50px;
+	}
+
+	nav ul {
+		display: absolute;
+	}
+
+	.primaryButton {
+		width: 150px;
+		height: 50px;
+		padding: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	main .article {
+		display: flex;
+		flex-direction: column-reverse;
+		padding: 10px;
+		border: 2px solid white;
+		height: 50vh;
+		gap: 0px;
+	}
+
+	main .article .HeroInfo {
+		width: 100%;
+		align-items: center;
+	}
+
+	main .article img {
+		width: 100%;
+		height: 30%;
+		object-fit: cover;
+	}
+
+	main .article a {
+		width: 80%;
+	}
+
+	main a {
+		width: 20%;
+	}
+
+	h1 {
+		font-size: 50px;
+	}
+
+	h2 {
+		font-size: 30px;
+	}
+
+	p {
+		font-size: 14pt;
+	}
+
+	.specialsList {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr); /* Change to 2 columns */
+		grid-auto-flow: row;
+	}
 }
