@@ -22,25 +22,12 @@ const Nav = () => {
 		<nav>
 			{innerWidth < 700 && <button className='primaryButton'> Menu </button>}
 			{((innerWidth <= 700 && navOpen) || (innerWidth > 700)) && <ul>
-				<li>
-					<a> Home </a>
-				</li>
-				<li>
-					<a> About </a>
-				</li>
-				<li>
-					<a> Menu </a>
-				</li>
-				<li>
-					<a> Reservations </a>
-				</li>
-				<li>
-					<a> Order Online </a> </li>
-				<li>
-					<a> Login </a>
-				</li>
+				<li> <a href='/'> Home </a> </li>
+				<li> <a href='/booking'> Booking </a> </li>
 			</ul>}
 		</nav>
+
+
 	)
 }
 
